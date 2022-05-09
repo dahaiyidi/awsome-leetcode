@@ -1,8 +1,6 @@
 ## Problem
 
-## Shortest Cycle Containing Target Node
-
-https://binarysearch.com/problems/Shortest-Cycle-Containing-Target-Node
+## [Shortest Cycle Containing Target Node](https://binarysearch.com/problems/Shortest-Cycle-Containing-Target-Node)
 
 ++
 
@@ -34,7 +32,7 @@ Return the length of a shortest cycle that contains `target`. If a solution does
 ### Python
 
 ```python
-class Sol的ution:
+class Solution:
     def solve(self, graph, target):
         visited = set()
         q = [target]
