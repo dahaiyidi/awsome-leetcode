@@ -66,14 +66,17 @@ public:
 
 ## BFS
 
-BFS其实和树的层序遍历是一个道理。 通常利用**队列**实现广度优先遍历。
+- BFS其实和树的层序遍历是一个道理。 通常利用**队列**实现广度优先遍历。
 
-很多时候对于遍历类题目：**使用DFS，比使用BFS的程序更加简洁。**
+- 很多时候对于遍历类题目：**使用DFS，比使用BFS的程序更加简洁。**
 
-但是最短路径类的题目，还是只能用BFS.
+- 但是最短路径类的题目，还是只能用BFS.
 
-- [Shortest Cycle Containing Target Node](https://binarysearch.com/problems/Shortest-Cycle-Containing-Target-Node)
-- :heart:多源BFS [1162. 地图分析](https://leetcode-cn.com/problems/as-far-from-land-as-possible/)
+- 题目：
+
+  - [Shortest Cycle Containing Target Node](https://binarysearch.com/problems/Shortest-Cycle-Containing-Target-Node)
+
+  - :heart:多源BFS [1162. 地图分析](https://leetcode-cn.com/problems/as-far-from-land-as-possible/)
 
 
 
