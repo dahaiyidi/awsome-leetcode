@@ -1,6 +1,6 @@
 ## Problem
 
-#### [1737. 满足三条件之一需改变的最少字符数](https://leetcode-cn.com/problems/change-minimum-characters-to-satisfy-one-of-three-conditions/)
+#### [问题名称](https://leetcode-cn.com/problems/change-minimum-characters-to-satisfy-one-of-three-conditions/)
 
 ++
 
