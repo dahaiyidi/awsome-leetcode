@@ -98,7 +98,6 @@ public:
     }
 };
 
-
 // 也可以直接将索引存入deque中，这样deque就不用记录相等的元素了。
 class Solution {
 public:
@@ -113,9 +112,12 @@ public:
                 q.pop_back();
             }
             q.push_back(i);
+            
+            // 更新窗口
             if(i - q.front() + 1 > k){
                 q.pop_front();
             }
+            // q.front()是当前窗口最大值
             if(i >= k - 1){
                 res.push_back(nums[q.front()]);
             }

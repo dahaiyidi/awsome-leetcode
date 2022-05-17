@@ -16,6 +16,7 @@
 
 - 思路值得借鉴：如何有效利用**在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内**
 - 建议也查看[287. 寻找重复数](https://leetcode-cn.com/problems/find-the-duplicate-number/)  利用链表中环的概念解决，**思考如何利用值与索引范围相同**
+- [448. 找到所有数组中消失的数字](https://leetcode.cn/problems/find-all-numbers-disappeared-in-an-array/)
 
 ------
 
