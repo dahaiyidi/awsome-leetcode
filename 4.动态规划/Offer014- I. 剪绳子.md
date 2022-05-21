@@ -13,20 +13,31 @@
 ### Note
 
 - 思路1：数学方法
+  - 获得尽量多的3
+  - 当最终剩余1，2， 3，4， 则直接停止，因为他们不需要再分，越分约小。
+
 - 思路2：动态规划
 
 #### [剑指 Offer 14- II. 剪绳子 II](https://leetcode-cn.com/problems/jian-sheng-zi-ii-lcof/)要求 答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。可以这样修改：
 
-```python
-class Solution:
-    def cuttingRope(self, n: int) -> int:
-        if n < 4:
-            return n - 1
-        res = 1
-        while n > 4:
-            res = res * 3 % 1000000007
-            n -= 3
-        return res * n % 1000000007
+```c++
+class Solution {
+public:
+    int cuttingRope(int n) {
+        if(n < 4)
+        {
+            return n - 1; // 因为必须要截断
+        }
+        long res = 1;
+        while(n > 4)
+        {
+            //res = res * 3 % 1000000007;
+            n -= 3;
+        }
+        return n * res % 1000000007;
+
+    }
+};
 ```
 
 
