@@ -10,7 +10,7 @@
 
 **示例:**
 
-```
+```c++
 输入: 1->2->3->4->5->NULL
 输出: 5->4->3->2->1->NULL
 ```
@@ -21,10 +21,11 @@
 
 ### Note
 
-- 思路不难
+- 反转链表是相当经典的题目，其中的翻转思路在很多题目中都有用到。
+- 但是翻转链表一点也不难，只要将下图画出来，一切都跃然纸上。
 - 关键点：
-  - dummy
-  - 找到pre， cur, nx的节点，根据更新方式更新即可。3个节点的图如下，非常简单。
+  - 使用dummy简化问题
+  - 找到pre，p, cur的节点，根据更新方式更新即可。3个节点的图如下，非常简单。
   - ![image-20220506103758946](imgs/image-20220506103758946.png)
 
 
@@ -66,20 +67,24 @@ public:
         dummy->next = head;
 
         ListNode* pre = dummy;
-        ListNode* cur = head;
-        ListNode* nx = head->next;
-        while(nx)
+        ListNode* p = head;
+        ListNode* cur = head->next;
+        while(cur)
         {
-            cur->next = nx->next;
-            nx->next = pre->next;
-            pre->next = nx;
-            nx = cur->next;
-        }       
-        return dummy->next;
+            p->next = cur->next;
+            cur->next = pre->next;
+            pre->next = cur;
+            cur = p->next;
+        } 
+        head = dummy->next;
+        delete dummy;
+        return head;
     }
 };
 ```
 
 
 
-From : https://github.com/dahaiyidi/awsome-leetcode
+点击链接查看leetcode题目总结。若不总结，则永远陷入刷题的无底洞！**你所畏惧的一切，终将一个个地面对！**
+
+From : :heart: https://github.com/dahaiyidi/awsome-leetcode

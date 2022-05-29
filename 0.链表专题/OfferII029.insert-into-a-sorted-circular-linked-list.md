@@ -78,16 +78,24 @@ public:
             tmp->next = tmp;
             return tmp;
         }
+        //分为两种情况：在分界点处插入，在内部插入
         Node* p = head;
-        while(p->next != head){ // 避免陷入死循环
-            if(p->val > p->next->val){
+        while(p->next != head)
+        { // 避免陷入死循环
+            // 可能在分界点需要插入
+            if(p->val > p->next->val)
+            {
                 // 进入分界点
-                if(p->val < insertVal || insertVal < p->next->val){
+                if(p->val < insertVal || insertVal < p->next->val)
+                {
+                    // p 应该插入分界点处：<最小的数，或者>最大的数
                     break;
                 }
             }
-            if(p->val <= insertVal && insertVal <= p->next->val){
-                // 在内部找到适合插入的点
+            
+            // 在内部找到适合插入的点
+            if(p->val <= insertVal && insertVal <= p->next->val)
+            {
                 break;
             }
             p = p->next;
