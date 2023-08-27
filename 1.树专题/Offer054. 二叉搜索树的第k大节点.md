@@ -41,33 +41,29 @@
  */
 class Solution {
 public:
-    int res;
-    int k;
-    void dfs(TreeNode* root)
-    {
-        if(!root)
-        {
-            return;
-        }
-
-        dfs(root->right);
-        
-        // 这是核心处理程序
-        --k;
-        if(k == 0)
-        {
-            res = root->val;
-            cout << res << endl;
-            return;
-        }
-
-        dfs(root->left);
-    }
     int kthLargest(TreeNode* root, int k) {
-        // 右中左遍历
-        this->k = k;
-        dfs(root);
-        return res;
+
+        stack<TreeNode*> s;
+        int num = 0;
+        while(!s.empty() || root)
+        {
+            while(root)
+            {
+                s.push(root);
+                root = root->right;
+            }
+
+            root = s.top();
+            s.pop();
+            ++num;
+            if(num == k)
+            {
+                break;
+            }
+            root = root->left;
+        }
+        return root->val;
+
     }
 };
 ```
