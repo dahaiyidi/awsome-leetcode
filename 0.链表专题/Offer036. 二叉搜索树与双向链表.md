@@ -82,11 +82,9 @@ public:
         {
             return root;
         }
-        
         stack<Node*> s;
         Node* dummy = new Node(-1);
         Node* pre = dummy;
-        // 中序遍历
         while(!s.empty() || root)
         {
             while(root)
@@ -94,8 +92,6 @@ public:
                 s.push(root);
                 root = root->left;
             }
-
-            // 处理程序
             root = s.top();
             s.pop();
             pre->right = root;
@@ -110,9 +106,14 @@ public:
         {
             p = p->right;
         }
+
         p->right = dummy->right;
         dummy->right->left = p;
-        return dummy->right;
+
+        p = dummy->right;
+        delete dummy;
+        return p;       
+        
     }
 };
 ```

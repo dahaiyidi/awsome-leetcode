@@ -72,7 +72,9 @@ public:
         {
             pre->next = l2;
         }
-        return dummy->next;
+        pre = dummy->next;
+        delete dummy;
+        return pre;
     }
 };
 ```
