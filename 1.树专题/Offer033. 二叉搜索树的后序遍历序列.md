@@ -33,11 +33,33 @@
 ### C++
 
 ```C++
+// 迭代法：
+//时间：N2
+// 空间： n
+class Solution {
+public:
+    bool verifyTreeOrder(vector<int>& postorder) {
+        return func(postorder, 0, postorder.size() -1);
+
+    }
+    bool func(vector<int>& postorder, int i, int j)
+    {
+        if(i >= j) return true;
+        int p = i;
+        while(postorder[p] < postorder[j]) p++;
+        int m = p;
+        while(postorder[p] > postorder[j]) p++;
+        return p == j && func(postorder, i, m - 1) && func(postorder, m, j -1);
+    }
+
+};
+
+// 栈
 class Solution {
 public:
     bool verifyPostorder(vector<int>& postorder) {
         // 后序遍历：左右根
-        // 一个关键点：左子树所有点都小于根节点。 从后往前，第一个下降的就是左开始的地方，那么就回退找到该左的父，判断左里面的值是否都小于父。父是刚大于左的根的值。
+        // 一个关键点：对于所有节点，左子树所有点都小于根节点。 从后往前，第一个下降的就是左开始的地方，那么就回退找到该左的父，判断左里面的值是否都小于父。父是刚大于左的根的值。
 
         // 从右到左遍历，不停地将值加入stack，找到第一个下降的点postorder[i] < postorder[i + 1]， 那么postorder[i]应该是左子树的根节点
         // 找到父节点：从stack中弹出节点， 刚好大于postorder[i]的为父节点。
