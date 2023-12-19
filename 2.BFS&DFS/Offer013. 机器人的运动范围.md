@@ -22,7 +22,7 @@
 
 ------
 
-### Python
+### Python·
 
 ```python
 
@@ -56,6 +56,30 @@ public:
         vector<vector<bool>> visited(m, vector<bool>(n, false));
         int res = dfs(0, 0, 0, 0, visited);
         return res;
+    }
+};
+
+
+
+///////2
+class Solution {
+public:
+    int wardrobeFinishing(int m, int n, int cnt) {
+        vector<vector<bool>> visited(m, vector<bool>(n, false));
+        int res = dfs(0, 0, 0, 0, visited, cnt);
+        return res;       
+
+    }
+
+    int dfs(int i , int j, int si, int sj, vector<vector<bool>>& visited, const int cnt)
+    {
+        if(i < 0 || i>= visited.size() || j < 0  || si + sj > cnt|| j >=visited[0].size() || visited[i][j])
+            return 0;
+        visited[i][j] = true;
+        
+        int val_1 = dfs(i + 1, j, (i + 1)%10 ==0? si -8:si +1, sj, visited, cnt);
+        int val_2 = dfs(i, j + 1, si, (j + 1)%10 ==0? sj -8:sj +1, visited, cnt);
+        return 1 + val_1 + val_2;
     }
 };
 ```

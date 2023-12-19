@@ -1,7 +1,11 @@
 ## DFS&BFS总结
 
-- 所谓的DFS,BFS就是一种遍历所有可能性的方法而已，与树的遍历没有什么不同。
+- 所谓的DFS,BFS就是一种遍历所有可能性的方法而已，与树的遍历
+  - BFS 类似于层序遍历，之不多可能有多个起点，多个子节点；通常利用**队列**实现广度优先遍历。
+  -  DFS类似于树的普通的前中后等遍历没有什么不同。
   - 只不过二叉树的每个节点只有两种可能性，而DFS， BFS中的节点可能有数种选择的可能。
+  - 很多时候对于遍历类题目：**使用DFS，比使用BFS的程序更加简洁。**
+
 
 
 
@@ -49,7 +53,7 @@ public:
 
 - 岛屿周长[LeetCode 463. Island Perimeter](https://leetcode-cn.com/problems/island-perimeter/) （Easy） ：出了陆地的界（1.从1到0， 2.从1到grid边界外），说明出了边界，边界数+1
 
-- 岛屿最大面积[LeetCode 695. Max Area of Island](https://leetcode-cn.com/problems/max-area-of-island/) （Medium）：没什么好说的。
+- 岛屿最大面积[LeetCode 695. Max Area of Island](https://leetcode-cn.com/problems/max-area-of-island/) （Medium）：没什么好说的。 -
 
 - :heart: 填海造陆[LeetCode 827. Making A Large Island](https://leetcode-cn.com/problems/making-a-large-island/) （Hard）这已经是比较难的了
 

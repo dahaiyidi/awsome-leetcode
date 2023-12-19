@@ -69,6 +69,20 @@ public:
 
     }
 };
+
+// 2
+class Solution {
+public:
+    string crackPassword(vector<int>& password) {
+        sort(password.begin(), password.end(), [] (int& a, int& b){return to_string(a) + to_string(b) < to_string(b) + to_string(a);});
+        string res;
+        for(int i: password)
+        {
+            res += to_string(i);
+        }
+        return res;
+    }
+};
 ```
 
 

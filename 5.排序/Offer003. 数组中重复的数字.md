@@ -47,7 +47,7 @@ public:
                 int val = nums[i];
 
                 // 重复:看看你家里有没有和你一样的萝卜
-                if(nums[val] == nums[i]) 
+                if(nums[val] == v) 
                 {
                     return nums[i];
                 }

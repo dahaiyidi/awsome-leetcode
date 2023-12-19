@@ -46,32 +46,34 @@
 ```C++
 class Solution {
 public:
-    void dfs(string& s, int depth, vector<bool>& used, vector<string>& res, vector<char>& path){
-        if(depth == s.size()){
+    void dfs(string& goods, vector<string>& res, vector<char>& path, vector<bool>& used)
+    {
+        if(path.size() == goods.size())
+        {
             string temp(path.begin(), path.end());
             res.emplace_back(temp);
+            return;
         }
-
-        for(int i = 0; i < s.size(); i++){
-            if(used[i] || (i > 0 && s[i] == s[i - 1] && !used[i - 1])){
+        for(int i = 0; i < goods.size(); i++)
+        {
+            if(used[i] || (i > 0 && goods[i] == goods[i-1] && !used[i-1]))
+            {
                 continue;
             }
-            path.emplace_back(s[i]);
+            path.push_back(goods[i]);
             used[i] = true;
-
-            dfs(s, depth + 1, used, res, path);
-
-            path.pop_back();
+            dfs(goods, res, path, used);
             used[i] = false;
+            path.pop_back();
         }
-
     }
-    vector<string> permutation(string s) {
+
+    vector<string> goodsOrder(string goods) {
         vector<string> res;
         vector<char> path;
-        vector<bool> used(s.size(), false);
-        sort(s.begin(), s.end());
-        dfs(s, 0, used, res, path);
+        vector<bool> used(goods.size(), false);
+        sort(goods.begin(), goods.end());
+        dfs(goods, res, path, used);
         return res;
     }
 };
