@@ -74,7 +74,7 @@ public:
     void addNum(int num) {
         if(maxHeap.size() == minHeap.size())
         {
-            // 偶数个， 最终左半边的存储的多一个元素
+            // 偶数个， 最终左半边的存储的多一个元素， 先添加到右边， 在添加到左边
             minHeap.push(num);
             maxHeap.push(minHeap.top());
             minHeap.pop();

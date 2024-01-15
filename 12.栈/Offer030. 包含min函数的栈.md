@@ -34,49 +34,32 @@
 ### C++
 
 ```C++
-class CQueue {
+class MinStack {
 public:
-    stack<int> st1;
-    stack<int> st2;
-
-    CQueue() {
-
+    stack<int> A, B; // B用来存储 当前的min
+    MinStack() {}
+    void push(int x) {
+        A.push(x);
+        if(B.empty() || B.top() >= x)
+            B.push(x);
     }
-    
-    void appendTail(int value) {
-        // 注意在appendTail时，不需要将st2的全部元素倒腾到st1
-        st1.push(value);
+    void pop() {
+        if(A.top() == B.top())
+            B.pop();
+        A.pop();
     }
-    
-    int deleteHead() {
-        // 注意在deleteHead时，不需要将st1的全部元素倒腾到st2
-        if(st2.empty())
-        {
-            // st2为空，不停地从st1转移到st2
-            while(!st1.empty())
-            {
-                st2.push(st1.top());
-                st1.pop();
-            }
-        }
-
-        if(st2.empty())
-        {
-            // st1和st2均为空
-            return -1;
-        }
-        int val = st2.top();
-        st2.pop();
-        return val;
+    int top() {
+        return A.top();
+    }
+    int getMin() {
+        return B.top();
     }
 };
 
-/**
- * Your CQueue object will be instantiated and called as such:
- * CQueue* obj = new CQueue();
- * obj->appendTail(value);
- * int param_2 = obj->deleteHead();
- */
+作者：Krahets
+链接：https://leetcode.cn/problems/bao-han-minhan-shu-de-zhan-lcof/solutions/133760/mian-shi-ti-30-bao-han-minhan-shu-de-zhan-fu-zhu-z/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 ```
 
 点击链接查看leetcode题目总结。若不总结，则永远陷入刷题的无底洞！**你所畏惧的一切，终将一个个地面对！**
