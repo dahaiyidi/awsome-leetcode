@@ -67,7 +67,7 @@ public:
             }
             else if(numbers[mid] < numbers[j])
             {
-                j = mid; // mid 处可能是所要求的最小值
+                j = mid; // mid 处可能是所要求的最小值, 若直接-1， 则有可能直接跳过了最小值，导致永远无法找到该值。 而numbers[mid] > numbers[j]情况下则没有这种问题。
             }
             else 
             {

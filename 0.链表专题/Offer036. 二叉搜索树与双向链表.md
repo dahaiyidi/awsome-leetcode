@@ -94,6 +94,7 @@ public:
             }
             root = s.top();
             s.pop();
+            
             pre->right = root;
             root->left = pre;
             pre = root;
@@ -101,18 +102,10 @@ public:
             root = root->right;
         }
 
-        Node* p = dummy->right;
-        while(p && p->right)
-        {
-            p = p->right;
-        }
+        pre->right = dummy->right;
+        dummy->right->left = pre;
 
-        p->right = dummy->right;
-        dummy->right->left = p;
-
-        p = dummy->right;
-        delete dummy;
-        return p;       
+        return  dummy->right;      
         
     }
 };
