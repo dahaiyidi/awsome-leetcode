@@ -49,57 +49,38 @@
 
 ```C++
 class Solution {
-    int target = 0;
 public:
-
-    int partition(vector<int>& nums, int left, int right)
+    int partition(vector<int>& nums, const int left, const int right)
     {
-        int k = left + (rand() % (right - left + 1));
-        int val = nums[k];
-        swap(nums[k], nums[right]);
+        int pivot = (rand() % (right - left + 1)) + left;
+        swap(nums[pivot], nums[right]);
+        int pivot_val = nums[right];
         int i = left;
-        int j = left;
-        for(j = left; j < right; ++j)
+        int j = right -1;
+        while(true)
         {
-            if(nums[j] < val)
-            {
-                swap(nums[i++], nums[j]);
-            }
+            while(i <= right -1 && nums[i] < pivot_val) i++;
+            while(j >= left && nums[j] > pivot_val) j--;
+            if(i >= j) break;
+            swap(nums[i], nums[j]);
+            i++;
+            j--;
         }
         swap(nums[i], nums[right]);
-        return i; // i是分界点
+        return i;
     }
-    
-    void quickSort(vector<int>& nums, int left, int right)
+    void quickSort(vector<int>& nums, const int left, const int right, const int target_ind)
     {
-        if(left >= right)
-        {
-            return;
-        }
+        if(left >= right) return;
         int i = partition(nums, left, right);
-        if(i == target)
-        {
-            return;
-        }
-        else if(target < i)
-        {
-            right = i - 1;
-        }
-        else if(target > i)
-        {
-            left = i + 1;
-        }
-
-        quickSort(nums, left, right);
-
-        // quickSort(nums, left, i - 1);
-        // quickSort(nums, i + 1, right);
+        if (i == target_ind) return;
+        else if(i < target_ind) quickSort(nums, i + 1, right, target_ind);
+        else if(i > target_ind) quickSort(nums, left, i - 1, target_ind);
     }
-
-    vector<int> getLeastNumbers(vector<int>& arr, int k) {
-        target = k - 1;
-        quickSort(arr, 0, arr.size() - 1);
-        return vector<int>(arr.begin(), arr.begin() + k);
+    vector<int> inventoryManagement(vector<int>& nums, int cnt) {
+        if(nums.empty() || cnt == nums.size()) return nums;
+        quickSort(nums, 0, nums.size() -1, cnt - 1);
+        return vector<int>(nums.begin(), nums.begin() + cnt);
     }
 };
 ```

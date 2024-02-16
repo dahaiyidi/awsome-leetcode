@@ -106,6 +106,39 @@ public:
     }
 
 };
+
+// 写法2
+class Solution {
+private:
+    const string numbers{"0123456789"};
+    vector<string> res;
+public:
+    void dfs(string& s, int pos)
+    {
+        if(pos == s.size())
+        {
+            res.push_back(s);
+            return;
+        }
+        for(int i = 0; i < numbers.size(); i++)
+        {
+            s[pos] = numbers[i];
+            dfs(s, pos + 1);
+        }
+    }
+    vector<int> countNumbers(int n) {
+        string s(n, '0');
+        dfs(s, 0);
+        vector<int> res2;
+        for(int i = 1; i < res.size(); i++)
+        {
+            res2.push_back(stoi(res[i]));
+        }
+        return res2;
+
+
+    }
+};
 ```
 
 

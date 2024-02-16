@@ -34,6 +34,7 @@
 class Solution {
 public:
     bool validateStackSequences(vector<int>& pushed, vector<int>& popped) {
+        if( pushed.size() != popped.size()) return false;
         stack<int> st;
         int j = 0;
         for(int i = 0; i < pushed.size(); ++i)

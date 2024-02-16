@@ -18,7 +18,7 @@
 ### Complexity
 
 - 时间O：n
-- 空间O：1, 即便使用了unordered_map，但是也仅仅是常数个，最多只需要26个
+- 空间O：1, 即便使用了unordered_map，但是也仅仅是常数个
 
 ------
 

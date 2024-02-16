@@ -33,7 +33,7 @@ public:
     vector<int> singleNumbers(vector<int>& nums) {
         // 当只有一个数字不同时我们能够轻易的通过^得到结果
         // 先来一遍^ ，得到的结果k是两个目标数字（a和b）的抑或结果，我们想：如果能将nums分成两组，且a和b在不同的组就好了
-        // 怎么分组？我们找到k的某位为1，根据改位上是否为1，可以将nums分成我们想要的两组！然后分别进行^
+        // 怎么分组？我们找到k的某位为1，根据g位上是否为1，可以将nums分成我们想要的两组！然后分别进行^
         vector<int> res;
         int k = 0;
         for(auto n : nums)

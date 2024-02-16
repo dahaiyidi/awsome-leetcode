@@ -40,7 +40,7 @@ public:
     MinStack() {}
     void push(int x) {
         A.push(x);
-        if(B.empty() || B.top() >= x)
+        if(B.empty() || B.top() >= x)  ////////////////// top ,pop 记得empty检验
             B.push(x);
     }
     void pop() {

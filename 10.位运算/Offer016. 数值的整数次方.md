@@ -41,7 +41,7 @@ public:
         // 当n为偶数，x^n = ( x^(n/2) )^2
         // 直到n = 0
         double res = 1;
-        long long N = n; // 如果最小的负数变成正数时会溢出
+        long N = n; // 如果最小的负数变成正数时会溢出
         if(N < 0)
         {
             x = 1.0 / x;

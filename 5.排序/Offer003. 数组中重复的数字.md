@@ -36,6 +36,39 @@
 ### C++
 
 ```C++
+//写法1
+class Solution {
+public:
+    int findRepeatDocument(vector<int>& documents) {
+        int i = 0;
+
+        while(i < documents.size())
+        {
+            if(documents[i] == i)
+            {// 当前元素已经匹配上，看下一个。
+                i++;
+                continue;
+            }
+            else
+            {
+                // 如果目标位置已存在该元素，即重复出现
+                if(documents[documents[i]] == documents[i])
+                {
+                    return documents[i];
+                }
+                else{
+                // 将目标值送到对应位置，交换回来x。 此时i不需要++ 因为下一次还需要看documents[i]
+                    swap(documents[i], documents[documents[i]]);
+                }
+            }
+        }
+        return -1;
+
+    }
+};
+
+
+// 写法2
 class Solution {
 public:
     int findRepeatNumber(vector<int>& nums) {

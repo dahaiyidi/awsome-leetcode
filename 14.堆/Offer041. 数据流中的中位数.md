@@ -90,6 +90,7 @@ public:
     }
     
     double findMedian() {
+        if(maxHeap.size() == 0) return INT_MIN;
         if(minHeap.size() == maxHeap.size())
         {
             return (minHeap.top() + maxHeap.top()) / 2.0;

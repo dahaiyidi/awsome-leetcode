@@ -33,6 +33,8 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
+        // 某位出现次数 % 3 为1： ones
+        // 某位出现次数 % 3 为2： twos
         // 在推导ones = ones ^ n & ~twos;问题不大
         // 但是怎么推导twos = twos ^ n & ~ones;呢？
         // 首先根据ones = ones ^ n & ~twos;更新一步状态，在新的状态上交换两者的位置即可得到相同的状态转移方式。

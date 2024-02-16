@@ -40,49 +40,33 @@
 ```C++
 class Solution {
 public:
-    vector<int> spiralOrder(vector<vector<int>>& matrix) {
-        if(matrix.empty() || matrix[0].empty())
-        {
-            return {};
-        }
+    vector<int> spiralArray(vector<vector<int>>& array) {
+        if(array.size() == 0) return {};
+        int m = array.size();
+        int n = array[0].size();
+        int u = 0, d= m -1, l=0, r = n-1;
+
         vector<int> res;
-        int m = matrix.size();
-        int n = matrix[0].size();
-        int i = 0;
-        int j = 0;
 
-        for(int k = 0; k <= (n - 1) / 2 && k <= (m - 1) / 2; ++k)
+        while(true)
         {
-            i = k;
-            for(j = k; j <= n - 1 - k; ++j)
-            {
-                // cout << 11 << endl;
-                res.push_back(matrix[i][j]);
-            }
+            for(int col = l; col <= r; col++) res.push_back(array[u][col]);
+            u++;
+            if(u > d) break;
 
-            j = n - 1 - k;
-            for(i = k + 1; i <= m - 1 - k; ++i)
-            {
-                //cout << 22 << endl;
-                res.push_back(matrix[i][j]);
-            }
+            for (int row = u; row <= d; row++) res.push_back(array[row][r]);
+            r--;
+            if(r < l) break;
 
-            i = m - 1 - k;
-            for(j = n - 1 - k - 1; j >= k && i > k; --j)   // 记得添加条件  i > k
-            {
-                //cout << 33 << endl;
-                res.push_back(matrix[i][j]);
-            }
+            for (int col = r; col >= l; col--) res.push_back(array[d][col]);
+            d--;
+            if(d < u) break;
 
-            j = k;
-            for(i = m - 1 - k - 1; i >= k + 1 && n - 1 - k >k; --i)  // 记得添加条件  n - 1 - k >k
-            {
-                //cout << 44 << endl;
-                res.push_back(matrix[i][j]);
-            }   
-
+            for (int row = d; row >= u; row--) res.push_back(array[row][l]);
+            l++;
+            if(l > r) break;
         }
-        return res;
+        return res;       
 
     }
 };

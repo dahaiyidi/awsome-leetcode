@@ -33,7 +33,7 @@
 class Solution {
 public:
     int add(int a, int b) {
-        while(b!=0)  // 直到进位为0
+        while(b)  // 直到进位为0
         {
             int c = ((unsigned int) (a & b)) << 1; // 只考虑进位  //C++中负数不支持左移位，因为结果是不定的
             a ^= b; // 不考虑进位

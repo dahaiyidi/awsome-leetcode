@@ -41,8 +41,8 @@
 ```C++
 class Solution {
 public:
-    string reverseWords(string s) {
-        
+    string reverseMessage(string s) {
+        if(s.empty()) return "";
         istringstream input(s);
         stack<string> st;
         string res;
@@ -50,8 +50,8 @@ public:
         while(input >> str)
         {
             st.push(str);
-            cout << str << endl;
         }
+        if(st.empty()) return "";
         while(!st.empty())
         {
             res += (st.top() + " ");

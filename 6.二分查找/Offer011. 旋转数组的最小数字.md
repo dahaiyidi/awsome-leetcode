@@ -61,6 +61,7 @@ public:
         while(i <= j)
         {
             int mid = i + ((j - i) >> 1);
+            // 只需要比较numbers[mid]  和numbers[j]的值的大小， 如果选择和nums[i]比较则无效，因为，当nums[mid] > nums[i]时，无法确定ij怎么变化。
             if(numbers[mid] > numbers[j])
             {
                 i = mid + 1;

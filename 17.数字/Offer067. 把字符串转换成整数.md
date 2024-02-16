@@ -85,7 +85,7 @@ public:
             int cur = str[i] - '0';
 
             //  学习如何判断越界
-            if(res > INT_MAX / 10 || (res == INT_MAX / 10 && cur > 7)) 
+            if(res > INT_MAX / 10 || (res == INT_MAX / 10 && cur > INT_MAX % 10)) 
             {
                 return sign == 1 ? INT_MAX: INT_MIN;
             }
