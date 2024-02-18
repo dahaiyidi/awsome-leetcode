@@ -6,6 +6,12 @@
   - 只不过二叉树的每个节点只有两种可能性，而DFS， BFS中的节点可能有数种选择的可能。
   - 很多时候对于遍历类题目：**使用DFS，比使用BFS的程序更加简洁。**
 
+------
+
+## offer专题
+
+- [剑指 Offer 13. 机器人的运动范围](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/) ++
+  - 注意在判断条件中，将对索引有效范围的判定放在最前面。
 
 
 

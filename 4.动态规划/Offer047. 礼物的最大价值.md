@@ -57,6 +57,28 @@ public:
         return dp[n - 1];
     }
 };
+
+// 也可以不用单独初始化第一行，直接包含在核心程序中也可以。
+class Solution {
+public:
+    int jewelleryValue(vector<vector<int>>& frame) {
+        if(frame.empty() || frame[0].empty()) return -1;
+        int m = frame.size();
+        int n = frame[0].size();
+        vector<int> dp(n, 0);
+
+        for(int i = 0; i < m; i++)
+        {
+            dp[0] += frame[i][0];
+            for(int j = 1; j < n; j++)
+            {
+                dp[j] = frame[i][j] + max(dp[j], dp[j-1]);
+
+            }
+        }
+        return dp[n-1];
+    }
+};
 ```
 
 

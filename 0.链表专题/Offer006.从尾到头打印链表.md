@@ -71,23 +71,15 @@ public:
  */
 class Solution {
 public:
-    void dfs(ListNode* head, vector<int>& res)
+    void func(ListNode* head, vector<int>& res)
     {
-        if(head == NULL)
-        {
-            return;
-        }
-        if(head && head->next == NULL)
-        {
-            res.emplace_back(head->val);
-            return;
-        }
-        dfs(head->next, res);
-        res.emplace_back(head->val);
+        if(head == nullptr) return;
+        func(head->next, res);
+        res.push_back(head->val);
     }
-    vector<int> reversePrint(ListNode* head) {
+    vector<int> reverseBookList(ListNode* head) {
         vector<int> res;
-        dfs(head, res);
+        func(head, res);
         return res;
     }
 };

@@ -92,7 +92,8 @@ class Solution {
 public:
     int cuttingRope(int n) {
         // dp[i] 代表长度为i的最优值
-        // 对于所有的j [1, i - 1], 取max(j * (i - j), j * dp[i - j])， 取所有j对应值的最大值
+        // 对于所有的j [1, i - 1], 取当第一段的长度为j时，整体成绩最大值为max(j * (i - j), j * dp[i - j])， 取所有j对应值的最大值
+        // 此处将第一段长度设置为j，可以将问题的表达式方便的写出来。 将不确定的东西转化为确定的东西。
         vector<int> dp(n + 1, 0);
         dp[2] = 1;
         for(int i = 3; i <= n; ++i)

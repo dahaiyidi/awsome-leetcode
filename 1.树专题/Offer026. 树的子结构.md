@@ -53,6 +53,7 @@ class Solution {
 public:
     bool fun(TreeNode* r1, TreeNode* r2)
     {
+        // 函数定义是：判断如果将r2根节点和r1根节点放在一起，全部r2节点 与r1对应部位的节点值一致
         if(!r2)  
         {
             return true;
